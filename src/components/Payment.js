@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 export default function Payment() {
 
+    const navigate = useNavigate();
     const [img, setImg] = useState('')
     const [about, setAbout] = useState('')
     const [price, setPrice] = useState('')
@@ -81,7 +82,10 @@ export default function Payment() {
                     expiryDate: '',
                     cvv: ''
                 })
+                
                 alert("Thankyou For Shopping ! You will be Notify soon")
+                navigate('/thankyou');
+                
             }else{
 
                 alert('please fill all data');
@@ -238,9 +242,9 @@ export default function Payment() {
                                 </div>
                             </div>
                             </div>
-                            <Link type="submit" to="/thankyou" className="btn btn-danger  rounded-0 shadow-lg mt-3 w-100 btn-lg btn-block"  style={{backgroundColor:""}}>
+                            <button type="submit"  className="btn btn-danger  rounded-0 shadow-lg mt-3 w-100 btn-lg btn-block"  style={{backgroundColor:""}}>
                                 Buy
-                            </Link>
+                            </button>
                         </form>
                     </div>
 
